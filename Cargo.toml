@@ -1,0 +1,19 @@
+[package]
+name = "veshell-prototype-smithay"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tracing-subscriber = { version = "0.3.16", features = ["env-filter"] }
+
+
+[dependencies.smithay]
+default-features = false
+features = ["desktop", "wayland_frontend", "backend_winit", "renderer_gl"]
+git = "https://github.com/Smithay/smithay"
+rev = "964e9eddeebc2d5ec0c4caa9e2e87de699e8e0b3"
+
+[features]
+wayland_frontend = ["smithay/wayland-server", "smithay/wayland-protocols", "smithay/wayland-protocols-wlr", "smithay/wayland-protocols-misc", "smithay/tempfile"]
